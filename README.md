@@ -1,4 +1,7 @@
 # URIM - Universal Serial Bus Replication and Injection Medium
+![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/rk797/URIM&title=Views&edge_flat=true)
+
+
 **URIM** is an Arduino firmware that serves as a controlled USB mouse emulator. It works by receiving designated instructions from the host for mouse actions through the USB HID protocol and executing these actions while acting as an actual USB HID Mouse. **URIM** firmware is also capable of interpreting 16-bit data from the mouse and replicating it to the computer.
 
 A unique feature of URIM is its ability to receive external UART command injections, enabling real-time control and manipulation of mouse actions via a secondary chip (CH340). This allows for integration with other devices or systems for custom input manipulation.
