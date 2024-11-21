@@ -8,7 +8,7 @@
             //Fetch based off default paramters
             var mouse = rkMouse.GetMouse();
 
-            int i = 100;
+            int i = 100; 
             Console.WriteLine("Moving mouse...");
             while (i-- > 0)
             {

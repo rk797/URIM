@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <thread>
 
-
+ 
 int main() {
 
     //Fetch the mouse

@@ -12,7 +12,7 @@ int main() {
 
     if (rkMouse.Initialize()) 
     {
-        rkMouse.MainLoop();
+        rkMouse.MainLoop(); 
     }
 
     rkMouse.CloseSocket();

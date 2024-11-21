@@ -15,7 +15,7 @@ void PrintWithLineDelay(const std::string& text, int delayNanoseconds = 100) {
         std::cout << line << std::endl;
         std::this_thread::sleep_for(std::chrono::nanoseconds(delayNanoseconds));
     }
-}
+} 
 
 // Adjust the function to handle indentation for nested collections.
 void PrintReportDescriptor(const std::vector<unsigned char>& reportDescriptor, int indentLevel = 0) {
