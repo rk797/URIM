@@ -1,4 +1,4 @@
-# URIM - Universal Serial Bus Replication and Injection Medium
+# URIM - Universal Serial Bus Replication Medium
 ![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/rk797/URIM&title=Views&edge_flat=true)
 
 
@@ -6,10 +6,10 @@
 
 A unique feature of URIM is its ability to receive external UART command injections, enabling real-time control and manipulation of mouse actions via a secondary chip (CH340). This allows for integration with other devices or systems for custom input manipulation.
 
-URIM also includes a vendor-defined interface to perform IOCTL-based transmit (TX) and receive (RX) transfers. These transfers are utilized to retrieve the state of external keys. This functionality has been implemented in the rk-mouse API under the GetAsyncKeyState() method, which allows for asynchronous polling of key states via IOCTL requests.
+URIM also includes a vendor-defined interface to perform I/O-based transmit (TX) and receive (RX) transfers. These transfers are utilized to retrieve the state of external keys. This functionality has been implemented in the rk-mouse API under the GetAsyncKeyState() method, which allows for asynchronous polling of key states via I/O requests.
 
 # How is URIM different?
-The main difference between **URIM** firmware and other mouse replication firmware is that **URIM** can programmatically fetch and parse the report descriptor for any 16-bit or 8-bit mouse connected to the host.
+The main difference between **URIM** firmware and other mouse replication firmware is that **URIM** can programmatically fetch and parse the report descriptor for any 16-bit or 8-bit mouse connected to the host. 
 
 ## Key Features
 ```sh-session
@@ -18,7 +18,7 @@ Replication
 - Automatic descriptor fetch
 - Automatic interface enumeration
 - Support for both 16 bit and 8 bit mice
-- External key states via vendor defined IOCTL requests
+- External key states via vendor defined I/O HID requests
 - Custom ping features
 
 UART Command Injection
