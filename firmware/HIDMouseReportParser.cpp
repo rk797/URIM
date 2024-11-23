@@ -171,20 +171,22 @@ HIDReportDescriptor HIDMouseReportParser::SetReportDescriptor(USBHID* hid)
         return;
     }
 
-    /*
-    Serial.println();
-    Serial.print("X Index: ");
-    Serial.println(reportInfo.xIndex);
-    Serial.print("Y Index: ");
-    Serial.println(reportInfo.yIndex);
-    Serial.print("Wheel Index: ");
-    Serial.println(reportInfo.wheelIndex);
-    Serial.print("XY Size: ");
-    Serial.println(reportInfo.xySize);
-    Serial.print("Button Index: ");
-    Serial.println(reportInfo.buttonsIndex);
-    Serial.println();
-    */
+    
+    Serial1.println();
+    Serial1.print("X Index: ");
+    Serial1.println(reportInfo.xIndex);
+    Serial1.print("Y Index: ");
+    Serial1.println(reportInfo.yIndex);
+    Serial1.print("Wheel Index: ");
+    Serial1.println(reportInfo.wheelIndex);
+    Serial1.print("XY Size: ");
+    Serial1.println(reportInfo.xySize);
+    Serial1.print("Button Index: ");
+    Serial1.println(reportInfo.buttonsIndex);
+    Serial1.print("Button Size: ");
+    Serial1.println(reportInfo.buttonsSize);
+    Serial1.println();
+    
 
     return reportDescriptor;  // Return the valid report descriptor
 }
@@ -363,7 +365,17 @@ void HIDMouseReportParser::ParseBufIndex(const uint8_t* descriptor, uint16_t siz
 
         if (foundWheel && foundX && foundY && foundButtonsStage2) break;
 
+        // Ninjitsu developers have not specified a report size in their padding
+        // For cases like this, we will assume a size of 1 bit
+        // This is a workaround method to handle the padding issue
+        if (reportCount > 0 && reportSize == 0 && foundButtonsStage2 && !foundX) reportSize = 1;
         bitOffset += reportSize * reportCount;
         
+        
+        /*
+        Input (Data,Var,Abs,NWrp,Lin,Pref,NNul,Bit)	81 02 
+        Report Count (3)	                        95 03 
+        Input (Cnst,Ary,Abs)	                    81 01 
+        */
     }
 }

@@ -44,21 +44,21 @@ bool bHasBootloader = false;
 
 int iCurrentDPI = 800;
 
-bool BL_VerifySignature() {
-
-    /* Known byte sequence */
-    const uint8_t sig[] = { 0x0C, 0x94, 0x34, 0xFF, 0x0C, 0x94, 0x45, 0xFF };
-    const uint16_t sigAddr = 0x7E00; // address of the sig
-    const uint8_t sigLen = sizeof(sig);
-
-    for (uint8_t i = 0; i < sigLen; i++) {
-        uint8_t data = pgm_read_byte_near(sigAddr + i);
-        if (data != sig[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+//bool BL_VerifySignature() {
+//
+//    /* Known byte sequence */
+//    const uint8_t sig[] = { 0x0C, 0x94, 0x34, 0xFF, 0x0C, 0x94, 0x45, 0xFF };
+//    const uint16_t sigAddr = 0x7E00; // address of the sig
+//    const uint8_t sigLen = sizeof(sig);
+//
+//    for (uint8_t i = 0; i < sigLen; i++) {
+//        uint8_t data = pgm_read_byte_near(sigAddr + i);
+//        if (data != sig[i]) {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
 
 bool BL_VerifyCRC() {
     uint16_t crc = 0xFFFF;
